@@ -10,6 +10,7 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 // Create the rootSaga generator function
 function* rootSaga() {

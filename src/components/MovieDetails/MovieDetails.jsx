@@ -8,21 +8,37 @@ function MovieDetails ()  {
     const details = useSelector(store => store.details);
     const genres = useSelector(store => store.genres);
 
-
     const dispatch = useDispatch();
 
-
+const homePage = ()  => {
+    console.log('click this button and go back home');
+    history.push("/")
+}
 
 
 
 return (
-    <>
-<h1>Movie Details </h1>
+
 <div>
 
-<img  onClick={handleDetails} src={movie.poster} alt={movie.title}/>
+<h1>Movie Details </h1>
+<img src={details.poster}/>
+<br/>
+<p>{details.description}</p>
+<b/>
+
+<ul>
+    {genres.map(genre => (
+        <div>
+            <li>{genre.name}</li>
+        </div>
+    ))}
+
+</ul>
+<button onClick={homePage}>HomePage</button>
+
 </div>
-</>
+
 
 
 )
