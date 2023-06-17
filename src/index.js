@@ -30,7 +30,7 @@ function* fetchAllMovies() {
     }
         
 }
-
+//Genartor Function
 function* fetchDetails () {
     try {
         const details = yield axios.get('/api/movie')
