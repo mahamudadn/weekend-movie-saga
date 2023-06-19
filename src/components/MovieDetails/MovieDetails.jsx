@@ -1,56 +1,38 @@
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-function MovieDetails ()  {
+function MovieDetails() {
+	const dispatch = useDispatch();
+	const history = useHistory();
+	const details = useSelector((store) => store.details);
+	const genres = useSelector((store) => store.genres);
 
-    const history = useHistory();
-    const details = useSelector(store => store.details);
-    const genres = useSelector(store => store.genres);
+	const homePage = () => {
+		console.log("click this button and go back home");
+		history.push("/");
+	};
 
-    const dispatch = useDispatch();
+	return (
+		<div>
+			<h1>{details.title} </h1>
+			<img src={details.poster} />
+			<br />
+			<p>{details.description}</p>
+			<b />
 
-const homePage = ()  => {
-    console.log('click this button and go back home');
-    history.push("/")
+			<div>
+				{genres.map((genre) => (
+					<div key={genre.genres_id}>
+						{/* <p>{genre.name}</p>
+            <p>{genre.description}</p> */}
+						<p>{genre.genre}</p>
+					</div>
+				))}
+			</div>
+			<button onClick={homePage}>HomePage</button>
+		</div>
+	);
 }
 
-
-
-return (
-
-<div>
-
-<h1>Movie Details </h1>
-<img src={details.poster}/>
-<br/>
-<p>{details.description}</p>
-<b/>
-
-<ul>
-    {genres.map(genre => (
-        <div>
-            <li>{genre.name}</li>
-        </div>
-    ))}
-
-</ul>
-<button onClick={homePage}>HomePage</button>
-
-</div>
-
-
-
-)
-
-
-
-
-
-
-
-
-}
-
-
-export default  MovieDetails
+export default MovieDetails;
