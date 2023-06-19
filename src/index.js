@@ -46,7 +46,7 @@ function* fetchDetails(action) {
 function* fetchGenres(action) {
 	try {
 		console.log('fetchGenres saga action.payload is:', action.payload)
-		const genres = yield axios.get(`/api/genres/${action.payload.id}`);
+		const genres = yield axios.get(`/api/genre/${action.payload.id}`);
 		console.log("fetch genres", genres.data);
 		yield put({ type: "SET_GENRES", payload: genres.data });
 	} catch (error) {
