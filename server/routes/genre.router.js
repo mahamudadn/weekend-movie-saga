@@ -18,4 +18,4 @@ router.get('/:id', (req, res) => {
     console.log('Error with genres', err);
   })
 });
-module.exports = router
+module.exports = router;
